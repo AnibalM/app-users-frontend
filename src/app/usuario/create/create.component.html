@@ -1,0 +1,82 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Crear Usuario</h4>
+      <a routerLink="/usuario/index" class="btn btn-primary">Atras</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="title">Nombres:</label>
+                <input
+                  formControlName="nombres"
+                  id="nombres"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="campos.nombres.touched && campos.nombres.invalid" class="alert alert-danger">
+                    <div *ngIf="campos.nombres.errors.required">El campo nombres es requerido.</div>
+                    <div *ngIf="campos.nombres.errors.pattern">El  campo nombres solo debe contener letras.</div>
+                </div>
+              </div>
+              <div class="col-md-6 ">
+                <label for="title">Apellidos:</label>
+                <input
+                  formControlName="apellidos"
+                  id="apellidos"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="campos.apellidos.touched && campos.apellidos.invalid" class="alert alert-danger">
+                    <div *ngIf="campos.apellidos.errors.required">El campo apellidos es requerido.</div>
+                    <div *ngIf="campos.apellidos.errors.pattern">El campo apellidos solo debe contener letras.</div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="cedula">Cèdula:</label>
+                <input
+                  formControlName="cedula"
+                  id="cedula"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="campos.cedula.touched && campos.cedula.invalid" class="alert alert-danger">
+                    <div *ngIf="campos.cedula.errors.required">El campo cèdula es requerido.</div>
+                    <div *ngIf="campos.cedula.errors.pattern">El campo cèdula solo debe contener numeros.</div>
+                </div>
+              </div>
+              <div class="col-md-6 ">
+                <label for="correo">Correo:</label>
+                <input
+                  formControlName="correo"
+                  id="correo"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="campos.correo.touched && campos.correo.invalid" class="alert alert-danger">
+                    <div *ngIf="campos.correo.errors.required">El campo correo es requerido.</div>
+                    <div *ngIf="campos.correo.errors.email">El correo debe ser una dirección de correo válida.</div>
+                </div>
+              </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="telefono">Telefono:</label>
+              <input
+                formControlName="telefono"
+                id="telefono"
+                type="text"
+                class="form-control">
+              <div *ngIf="campos.telefono.touched && campos.telefono.invalid" class="alert alert-danger">
+                  <div *ngIf="campos.telefono.errors.required">El campo telefono es requerido.</div>
+                  <div *ngIf="campos.telefono.errors.pattern">El campo telefono solo debe contener numeros.</div>
+              </div>
+            </div>
+        </div>  
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Registrar</button>
+      </form>
+  </div>
+  
